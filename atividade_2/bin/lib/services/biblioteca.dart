@@ -1,17 +1,47 @@
+import '../models/livro.dart';
 
-//Classe Livro
-class Livro {
-  String titulo;
-  String autor;
-  String id;
-  int ano;
+class Biblioteca {
+  final List<Livro> _livros = [];
 
-//Construtor
-Livro({required this.titulo, required this.autor, required this.id, required this.ano});
+  // cadastrar livro 
+  void cadastrar(Livro livro) {
+    if (_livros.any((l) => l.id == livro.id)) {
+      print("Já existe um livro com esse ID!");
+      return;
+    }
+    _livros.add(livro);
+    print("Livro cadastrado com sucesso!");
+  }
 
-//Sobrescrita para evitar erros
-@override
-String toString(){
-  return "Titulo: $titulo\nAutor: $autor\nID: $id\nAno: $ano";
-}
+  // listar livros
+  void listar() {
+    if (_livros.isEmpty) {
+      print("Nenhum livro cadastrado.");
+      return;
+    }
+
+    for (var livro in _livros) {
+      print(livro);
+    }
+  }
+
+  // atualizar livro
+  void atualizar(String id, String titulo, String autor, int ano) {
+    for (var livro in _livros) {
+      if (livro.id == id) {
+        livro.titulo = titulo;
+        livro.autor = autor;
+        livro.ano = ano;
+        print("Livro atualizado com sucesso!");
+        return;
+      }
+    }
+    print("Livro não encontrado.");
+  }
+
+  // deletar livro
+  void remover(String id) {
+    _livros.removeWhere((livro) => livro.id == id);
+    print("Livro removido (se existia).");
+  }
 }
