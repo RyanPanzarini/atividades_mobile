@@ -28,7 +28,7 @@ void main() {
         biblioteca.atualizar();
         break;
       case 4:
-        biblioteca.remover(b);
+        biblioteca.remover();
         break;
       case 5:
         print("Saindo...");
