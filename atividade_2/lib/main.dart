@@ -19,16 +19,16 @@ void main() {
 
     switch (opcao) {
       case 1:
-        cadastrarLivro(biblioteca);
+        biblioteca.cadastrar();
         break;
       case 2:
         biblioteca.listar();
         break;
       case 3:
-        atualizarLivro(biblioteca);
+        biblioteca.atualizar();
         break;
       case 4:
-        removerLivro(biblioteca);
+        biblioteca.remover(b);
         break;
       case 5:
         print("Saindo...");
