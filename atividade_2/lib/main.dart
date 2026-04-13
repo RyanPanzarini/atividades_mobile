@@ -39,3 +39,20 @@ void main() {
   } while (opcao != 5);
 }
 
+void cadastrarLivro(Biblioteca biblioteca) {
+  stdout.write("ID: ");
+  String id = stdin.readLineSync()!;
+
+  stdout.write("Título: ");
+  String titulo = stdin.readLineSync()!;
+
+  stdout.write("Autor: ");
+  String autor = stdin.readLineSync()!;
+
+  stdout.write("Ano: ");
+  int ano = int.tryParse(stdin.readLineSync()!) ?? 0;
+
+  biblioteca.cadastrar(
+    Livro(id: id, titulo: titulo, autor: autor, ano: ano),
+  );
+}
