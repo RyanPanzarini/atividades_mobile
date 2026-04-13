@@ -11,7 +11,7 @@ class LinhaBotoes extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: botoes
-          .map((texto) => Botao(texto: texto, onClick: onClick))
+          .map((texto) => BotaoWidget(texto: texto, onClick: onClick))
           .toList(),
     );
   }
